@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import Firebase
+import FBSDKCoreKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -15,6 +17,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let _ = (scene as? UIWindowScene) else { return }
         AppUtil.shared.appdelegate = self
+        if let url = connectionOptions.urlContexts.first?.url {
+            ApplicationDelegate.shared.application(
+                    UIApplication.shared,
+                    open: url,
+                    sourceApplication: nil,
+                    annotation: [UIApplication.OpenURLOptionsKey.annotation]
+                )
+        }
+        FirebaseApp.configure()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -28,11 +39,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     func sceneWillEnterForeground(_ scene: UIScene) {
         window?.rootViewController = AppUtil.shared.launch
-        AppUtil.shared.launching()
         if AppUtil.shared.selectIndex == 1 {
             // hot launch
             FirebaseUtil.log(event: .openHot)
         }
+        AppUtil.shared.launching()
     }
 
     func sceneDidEnterBackground(_ scene: UIScene) {

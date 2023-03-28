@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Firebase
 
 class FirebaseUtil: NSObject {
     static func log(event: AnaEvent, params: [String: Any]? = nil) {
@@ -47,7 +48,7 @@ class FirebaseUtil: NSObject {
 
 enum AnaProperty: String {
     /// 設備
-    case local = "ay_rr"
+    case local = "ay_ui"
     
     var first: Bool {
         switch self {
@@ -68,19 +69,19 @@ enum AnaEvent: String {
         }
     }
     
-    case open = "lun_rr"
-    case openCold = "er_rr"
-    case openHot = "ew_rr"
-    case homeShow = "eq_rr"
-    case navigaClick = "ws_rr"
-    case navigaSearch = "wa_rr"
-    case cleanClick = "bu_rr"
-    case cleanSuccess = "xian_rr"
-    case cleanAlert = "dd_rr"
-    case listShow = "dl_rr"
-    case newAction = "acv_rr"
-    case shareClick = "xmo_rr"
-    case copyClick = "qws_rr"
-    case webStart = "zxc_rr"
-    case webSuccess = "bnm_rr"
+    case open = "lun_ui"
+    case openCold = "er_ui"
+    case openHot = "ew_ui"
+    case homeShow = "eq_ui"
+    case navigaClick = "ws_ui"
+    case navigaSearch = "wa_ui"
+    case cleanClick = "bu_ui"
+    case cleanSuccess = "xian_ui"
+    case cleanAlert = "dd_ui"
+    case listShow = "dl_ui"
+    case newAction = "acv_ui"
+    case shareClick = "xmo_ui"
+    case copyClick = "qws_ui"
+    case webStart = "zxc_ui"
+    case webSuccess = "bnm_ui"
 }

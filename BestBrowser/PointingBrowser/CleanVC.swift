@@ -22,6 +22,8 @@ class CleanVC: UIViewController {
             self.view.layoutIfNeeded()
             self.view.updateConstraints()
             if progress > 1.0 {
+                timer.cancel()
+                FirebaseUtil.log(event: .cleanSuccess)
                 self.dismiss(animated: true) { [weak self] in
                     self?.handle?()
                 }
@@ -44,7 +46,6 @@ class CleanVC: UIViewController {
         super.viewDidLoad()
         timer.resume()
         BrowserUtil.shared.clean(from: self)
-        FirebaseUtil.log(event: .cleanSuccess)
     }
 
 }

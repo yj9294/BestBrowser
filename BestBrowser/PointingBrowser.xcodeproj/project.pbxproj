@@ -18,6 +18,13 @@
 		C7D4AE7029CEE40D005CD7BA /* CleanVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7D4AE6E29CEE40D005CD7BA /* CleanVC.swift */; };
 		C7D4AE7129CEE40D005CD7BA /* CleanVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7D4AE6F29CEE40D005CD7BA /* CleanVC.xib */; };
 		C7D4AE7329CEEAE9005CD7BA /* FIrebaseUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7D4AE7229CEEAE9005CD7BA /* FIrebaseUtil.swift */; };
+		C7D4AE8529D1610F005CD7BA /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = C7D4AE8429D1610F005CD7BA /* FirebaseAnalytics */; };
+		C7D4AE8729D1610F005CD7BA /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = C7D4AE8629D1610F005CD7BA /* FirebaseCrashlytics */; };
+		C7D4AE8929D1610F005CD7BA /* FirebaseRemoteConfig in Frameworks */ = {isa = PBXBuildFile; productRef = C7D4AE8829D1610F005CD7BA /* FirebaseRemoteConfig */; };
+		C7D4AE8C29D16178005CD7BA /* FacebookAEM in Frameworks */ = {isa = PBXBuildFile; productRef = C7D4AE8B29D16178005CD7BA /* FacebookAEM */; };
+		C7D4AE8E29D16178005CD7BA /* FacebookBasics in Frameworks */ = {isa = PBXBuildFile; productRef = C7D4AE8D29D16178005CD7BA /* FacebookBasics */; };
+		C7D4AE9029D16178005CD7BA /* FacebookCore in Frameworks */ = {isa = PBXBuildFile; productRef = C7D4AE8F29D16178005CD7BA /* FacebookCore */; };
+		C7D4AE9F29D2D055005CD7BA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C7D4AE9E29D2D054005CD7BA /* GoogleService-Info.plist */; };
 		C7D90D2F29CD7418000F128B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7D90D2E29CD7418000F128B /* AppDelegate.swift */; };
 		C7D90D3129CD7418000F128B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7D90D3029CD7418000F128B /* SceneDelegate.swift */; };
 		C7D90D3629CD7418000F128B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7D90D3429CD7418000F128B /* Main.storyboard */; };
@@ -43,6 +50,7 @@
 		C7D4AE6E29CEE40D005CD7BA /* CleanVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleanVC.swift; sourceTree = "<group>"; };
 		C7D4AE6F29CEE40D005CD7BA /* CleanVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CleanVC.xib; sourceTree = "<group>"; };
 		C7D4AE7229CEEAE9005CD7BA /* FIrebaseUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FIrebaseUtil.swift; sourceTree = "<group>"; };
+		C7D4AE9E29D2D054005CD7BA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C7D90D2B29CD7418000F128B /* PointingBrowser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PointingBrowser.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7D90D2E29CD7418000F128B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C7D90D3029CD7418000F128B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -63,6 +71,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C7D4AE8C29D16178005CD7BA /* FacebookAEM in Frameworks */,
+				C7D4AE9029D16178005CD7BA /* FacebookCore in Frameworks */,
+				C7D4AE8929D1610F005CD7BA /* FirebaseRemoteConfig in Frameworks */,
+				C7D4AE8E29D16178005CD7BA /* FacebookBasics in Frameworks */,
+				C7D4AE8529D1610F005CD7BA /* FirebaseAnalytics in Frameworks */,
+				C7D4AE8729D1610F005CD7BA /* FirebaseCrashlytics in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -107,6 +121,7 @@
 				C7D4AE6229CD9EBC005CD7BA /* BrowserListVC.swift */,
 				C7D4AE6329CD9EBC005CD7BA /* BrowserListVC.xib */,
 				C7D90D4229CD79B9000F128B /* Launch Screen.storyboard */,
+				C7D4AE9E29D2D054005CD7BA /* GoogleService-Info.plist */,
 				C7D90D3429CD7418000F128B /* Main.storyboard */,
 				C7D90D3729CD741A000F128B /* Assets.xcassets */,
 				C7D90D3929CD741A000F128B /* LaunchScreen.storyboard */,
@@ -131,6 +146,14 @@
 			dependencies = (
 			);
 			name = PointingBrowser;
+			packageProductDependencies = (
+				C7D4AE8429D1610F005CD7BA /* FirebaseAnalytics */,
+				C7D4AE8629D1610F005CD7BA /* FirebaseCrashlytics */,
+				C7D4AE8829D1610F005CD7BA /* FirebaseRemoteConfig */,
+				C7D4AE8B29D16178005CD7BA /* FacebookAEM */,
+				C7D4AE8D29D16178005CD7BA /* FacebookBasics */,
+				C7D4AE8F29D16178005CD7BA /* FacebookCore */,
+			);
 			productName = BestBrowser;
 			productReference = C7D90D2B29CD7418000F128B /* PointingBrowser.app */;
 			productType = "com.apple.product-type.application";
@@ -159,6 +182,10 @@
 				Base,
 			);
 			mainGroup = C7D90D2229CD7418000F128B;
+			packageReferences = (
+				C7D4AE8329D1610F005CD7BA /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				C7D4AE8A29D16178005CD7BA /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */,
+			);
 			productRefGroup = C7D90D2C29CD7418000F128B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -180,6 +207,7 @@
 				C7D4AE7129CEE40D005CD7BA /* CleanVC.xib in Resources */,
 				C7D90D3829CD741A000F128B /* Assets.xcassets in Resources */,
 				C7D90D4329CD79B9000F128B /* Launch Screen.storyboard in Resources */,
+				C7D4AE9F29D2D055005CD7BA /* GoogleService-Info.plist in Resources */,
 				C7D90D3629CD7418000F128B /* Main.storyboard in Resources */,
 				C7D4AE6529CD9EBC005CD7BA /* BrowserListVC.xib in Resources */,
 			);
@@ -349,9 +377,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 59CN4J44AC;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PointingBrowser/Info.plist;
 				INFOPLIST_KEY_NSUserTrackingUsageDescription = "Please allow access to your activity tracking to provide personalized push services and reduce interference caused by irrelevant services.";
@@ -367,8 +395,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.testbird.BestBrowser;
+				PRODUCT_BUNDLE_IDENTIFIER = com.pporinge.browser;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
@@ -383,9 +412,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 59CN4J44AC;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PointingBrowser/Info.plist;
 				INFOPLIST_KEY_NSUserTrackingUsageDescription = "Please allow access to your activity tracking to provide personalized push services and reduce interference caused by irrelevant services.";
@@ -401,8 +430,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.testbird.BestBrowser;
+				PRODUCT_BUNDLE_IDENTIFIER = com.pporinge.browser;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
@@ -434,6 +464,58 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		C7D4AE8329D1610F005CD7BA /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
+		};
+		C7D4AE8A29D16178005CD7BA /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/facebook/facebook-ios-sdk";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		C7D4AE8429D1610F005CD7BA /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C7D4AE8329D1610F005CD7BA /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		C7D4AE8629D1610F005CD7BA /* FirebaseCrashlytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C7D4AE8329D1610F005CD7BA /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCrashlytics;
+		};
+		C7D4AE8829D1610F005CD7BA /* FirebaseRemoteConfig */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C7D4AE8329D1610F005CD7BA /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseRemoteConfig;
+		};
+		C7D4AE8B29D16178005CD7BA /* FacebookAEM */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C7D4AE8A29D16178005CD7BA /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
+			productName = FacebookAEM;
+		};
+		C7D4AE8D29D16178005CD7BA /* FacebookBasics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C7D4AE8A29D16178005CD7BA /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
+			productName = FacebookBasics;
+		};
+		C7D4AE8F29D16178005CD7BA /* FacebookCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C7D4AE8A29D16178005CD7BA /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
+			productName = FacebookCore;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = C7D90D2329CD7418000F128B /* Project object */;
 }

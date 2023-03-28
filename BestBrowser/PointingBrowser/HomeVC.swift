@@ -69,6 +69,7 @@ extension HomeVC {
     @IBAction func stopSearchAction() {
         view.endEditing(true)
         BrowserUtil.shared.stopLoad()
+        textField.text = ""
     }
     
     @IBAction func lastAction() {
@@ -113,6 +114,21 @@ extension HomeVC {
         setting.privacyHandle = {
             let vc = TermsVC()
             vc.content = """
+Information collection
+We collect and use data in strict accordance with this privacy policy. We will regularly learn about laws and regulations, and collect and use data in strict accordance with legal provisions.
+We will not read your exact location information, nor will we read your sensitive privacy. Won't collect apps from your phone.
+Usage data: including but not limited to the type of mobile device, IP address of the mobile device, mobile operating system, type of mobile internet browser you are using, device identifier, and other diagnostic data.
+Information sent when accessing the service: including but not limited to the email address you use to contact us, and information that can be used to contact or identify you personally.
+Information usage
+Used to update and maintain this application.
+To analyze the download and usage of applications in order to provide better service.
+For advertising and marketing purposes.
+Information sharing
+We do have third-party service providers and partners who may collect information about you. We are not responsible for the actions of these third parties. If you prefer, please familiarize yourself with their privacy policy.
+We will disclose your information when required by law
+We will disclose your information when our business is transferred, sold, restructured, or merged.
+Children's Privacy
+We only serve the 17+ age group. If a group of people over 17 years old uses our services and provides information, please ask the guardian to contact us even though, we will promptly take necessary measures including removing the relevant information.
 """
             vc.tit = "Privacy Policy"
             vc.modalPresentationStyle = .fullScreen
@@ -122,6 +138,16 @@ extension HomeVC {
         setting.termsHandle = {
             let vc = TermsVC()
             vc.content = """
+Use of the application
+1. Do not use this product for any unauthorized commercial purposes.
+2. Do not use this product for any illegal purpose.
+
+
+Update
+We may update this page from time to time. We recommend that you check this page regularly for updates.
+Contact us
+If you have any questions about this Privacy Policy, please contact us
+Ning81731877@outlook.com
 """
             vc.tit = "Terms of Use"
             vc.modalPresentationStyle = .fullScreen

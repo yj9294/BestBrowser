@@ -135,7 +135,7 @@ extension SettingView: UICollectionViewDataSource, UICollectionViewDelegate, UIC
             FirebaseUtil.log(event: .newAction, params: ["lig": "setting"])
         } else if item == .share {
             self.removeFromSuperview()
-            var url = "https://itunes.apple.com/cn/app/id"
+            var url = "https://itunes.apple.com/cn/app/id6446871195"
             if !BrowserUtil.shared.item.isNavigation, let text = BrowserUtil.shared.item.webView.url?.absoluteString {
                 url = text
             }
@@ -154,7 +154,7 @@ extension SettingView: UICollectionViewDataSource, UICollectionViewDelegate, UIC
             FirebaseUtil.log(event: .copyClick)
         } else if item == .rate {
             self.removeFromSuperview()
-            if let url = URL(string: "https://itunes.apple.com/cn/app/id") {
+            if let url = URL(string: "https://itunes.apple.com/cn/app/id6446871195") {
                 UIApplication.shared.open(url)
             }
         }
