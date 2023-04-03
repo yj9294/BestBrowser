@@ -21,9 +21,12 @@ class HomeVC: UIViewController {
     @IBOutlet weak var contentView: UIView!
     
     var date: Date = Date()
+    @IBOutlet weak var adView: GADNativeView!
+    var willAppear: Bool = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        addNotification()
         Task{
             if !Task.isCancelled {
                 try await Task.sleep(nanoseconds: 2_000_000_000)
@@ -35,15 +38,35 @@ class HomeVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         refreshStatus()
         BrowserUtil.shared.addedWebView(from: view)
+        willAppear = true
+        GADUtil.share.load(.interstitial)
+        GADUtil.share.load(.native)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         BrowserUtil.shared.removeWebView()
         FirebaseUtil.log(event: .homeShow)
+        willAppear = false
+        GADUtil.share.close(.native)
     }
     
     override func viewDidLayoutSubviews() {
         BrowserUtil.shared.frame = contentView.frame
+    }
+    
+    func addNotification() {
+        NotificationCenter.default.addObserver(forName: .nativeUpdate, object: nil, queue: .main) { [weak self] noti in
+            if let ad = noti.object as? NativeADModel, self?.willAppear == true {
+                if Date().timeIntervalSince1970 - (GADUtil.share.homeNativeAdImpressionDate ?? Date(timeIntervalSinceNow: -11)).timeIntervalSince1970 > 10 {
+                    self?.adView.nativeAd = ad.nativeAd
+                    GADUtil.share.homeNativeAdImpressionDate = Date()
+                } else {
+                    NSLog("[ad] 10s home 原生广告刷新或数据填充间隔.")
+                }
+            } else {
+                self?.adView.nativeAd = nil
+            }
+        }
     }
 
 }
@@ -109,6 +132,7 @@ extension HomeVC {
         self.view.window?.addSubview(setting)
         setting.frame = self.view.bounds
         setting.newHandle = {
+            GADUtil.share.load(.native)
             self.refreshStatus()
         }
         setting.privacyHandle = {

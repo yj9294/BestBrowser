@@ -10,18 +10,25 @@ import UIKit
 class BrowserListVC: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var adView: GADNativeView!
+    var willAppear: Bool = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        addNotifications()
         collectionView.register(BrowserListCell.classForCoder(), forCellWithReuseIdentifier: NSStringFromClass(BrowserListCell.classForCoder()))
     }
     
     override func viewWillAppear(_ animated: Bool) {
         FirebaseUtil.log(event: .listShow)
+        willAppear = true
+        GADUtil.share.load(.interstitial)
+        GADUtil.share.load(.native)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        
+        willAppear = false
+        GADUtil.share.close(.native)
     }
     
     @IBAction func backAction() {
@@ -32,6 +39,21 @@ class BrowserListVC: UIViewController {
         BrowserUtil.shared.add()
         self.dismiss(animated: true)
         FirebaseUtil.log(event: .newAction, params: ["lig": "tab"])
+    }
+    
+    func addNotifications() {
+        NotificationCenter.default.addObserver(forName: .nativeUpdate, object: nil, queue: .main) { [weak self] noti in
+            if let ad = noti.object as? NativeADModel, self?.willAppear == true {
+                if Date().timeIntervalSince1970 - (GADUtil.share.tabNativeAdImpressionDate ?? Date(timeIntervalSinceNow: -11)).timeIntervalSince1970 > 10 {
+                    self?.adView.nativeAd = ad.nativeAd
+                    GADUtil.share.tabNativeAdImpressionDate = Date()
+                } else {
+                    NSLog("[ad] 10s tab 原生广告刷新或数据填充间隔.")
+                }
+            } else {
+                self?.adView.nativeAd = nil
+            }
+        }
     }
 
 }

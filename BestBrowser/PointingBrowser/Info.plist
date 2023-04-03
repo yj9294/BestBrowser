@@ -21,6 +21,8 @@
 	<string>a88a9cc54894fdf5bc8160cf783c23b1</string>
 	<key>FacebookDisplayName</key>
 	<string>PointingBrowser</string>
+	<key>GADApplicationIdentifier</key>
+	<string>ca-app-pub-3940256099942544~1458002511</string>
 	<key>GADIsAdManagerApp</key>
 	<true/>
 	<key>GADNativeAdValidatorEnabled</key>

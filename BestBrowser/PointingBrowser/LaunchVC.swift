@@ -17,7 +17,11 @@ class LaunchVC: UIViewController {
         didSet {
             progressView.progress = progress
             if progress > 1.0 {
-                lauched()
+                timer?.cancel()
+                timer = nil
+                GADUtil.share.show(.interstitial) { [weak self] _ in
+                    self?.lauched()
+                }
             }
         }
     }
@@ -38,15 +42,24 @@ class LaunchVC: UIViewController {
         }
         
         progress = 0
-        
+        var duration = 15.0
         timer = DispatchSource.makeTimerSource()
         timer?.schedule(deadline: .now(), repeating: 0.01)
         timer?.setEventHandler { [weak self] in
             DispatchQueue.main.async {
-                self?.progress += (0.01 / 2.5)
+                self?.progress += Float((0.01 / duration))
+            }
+            // 延时 0.4
+            if (self?.progress ?? 0) > 1 / 15.0 * 0.2 {
+                if GADUtil.share.isLoaded(.interstitial) {
+                    duration = 1.0
+                }
             }
         }
         timer?.resume()
+        
+        GADUtil.share.load(.interstitial)
+        GADUtil.share.load(.native)
     }
     
     public func lauched() {

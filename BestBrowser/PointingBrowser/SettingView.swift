@@ -130,7 +130,13 @@ extension SettingView: UICollectionViewDataSource, UICollectionViewDelegate, UIC
             self.removeFromSuperview()
             BrowserUtil.shared.removeWebView()
             BrowserUtil.shared.add()
-            newHandle?()
+            GADUtil.share.close(.native)
+            Task {
+                if !Task.isCancelled {
+                    try await Task.sleep(nanoseconds: 500_000)
+                    newHandle?()
+                }
+            }
             
             FirebaseUtil.log(event: .newAction, params: ["lig": "setting"])
         } else if item == .share {
