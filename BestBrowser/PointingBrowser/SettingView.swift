@@ -126,20 +126,16 @@ extension SettingView: UICollectionViewDataSource, UICollectionViewDelegate, UIC
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let item = SettingItem.allCases[indexPath.row]
-        if item == .new {
-            self.removeFromSuperview()
-            BrowserUtil.shared.removeWebView()
-            BrowserUtil.shared.add()
-            GADUtil.share.close(.native)
-            Task {
-                if !Task.isCancelled {
-                    try await Task.sleep(nanoseconds: 500_000)
-                    newHandle?()
-                }
-            }
-            
-            FirebaseUtil.log(event: .newAction, params: ["lig": "setting"])
-        } else if item == .share {
+
+//        if item == .new {
+//            self.removeFromSuperview()
+//            BrowserUtil.shared.removeWebView()
+//            BrowserUtil.shared.add()
+//            newHandle?()
+//            
+//            FirebaseUtil.log(event: .newAction, params: ["lig": "setting"])
+//        } else
+        if item == .share {
             self.removeFromSuperview()
             var url = "https://itunes.apple.com/cn/app/id6446871195"
             if !BrowserUtil.shared.item.isNavigation, let text = BrowserUtil.shared.item.webView.url?.absoluteString {
@@ -202,7 +198,7 @@ class SettingCell: UICollectionViewCell {
         addSubview(title)
     }
     
-    var item: SettingItem = .new {
+    var item: SettingItem = .share {
         didSet {
             icon.image = UIImage(named: item.rawValue)
             title.text = item.title
@@ -211,11 +207,9 @@ class SettingCell: UICollectionViewCell {
 }
 
 enum SettingItem: String, CaseIterable {
-    case new, share, copy, rate
+    case share, copy, rate
     var title: String {
         switch self {
-        case .new:
-            return "New"
         case .share:
             return "Share"
         case .copy:
